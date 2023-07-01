@@ -1,0 +1,107 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./style.css">
+	<title>Calculator</title>
+</head>
+<body align="center">
+	<div class="heading">
+		<h1>Calulator</h1>
+	</div>
+	<div class="external" align="center">
+		<div class="internal">
+			<table>
+				<tr>	
+					<td colspan="4">
+						<input type="text" name="Num" id="numbers">
+					</td>
+				</tr>
+				<tr class="btns">
+					<td id="ac">AC</td>
+					<td class="div" onclick="appendValue(14)">/</td>
+					<td class="mul" onclick="appendValue(13)">*</td>
+					<td class="sub" onclick="appendValue(12)">-</td>
+				</tr>
+				<tr>
+					<td class="sev" onclick="appendValue(7)">7</td>
+					<td class="eight" onclick="appendValue(8)">8</td>
+					<td class="nine" onclick="appendValue(9)">9</td>
+					<td class="add" rowspan="2" onclick="appendValue(11)">+</td>
+				</tr>
+				<tr>
+					<td class="four" onclick="appendValue(4)">4</td>
+					<td class="five" onclick="appendValue(5)">5</td>
+					<td class="six" onclick="appendValue(6)">6</td>
+				</tr>
+				<tr>
+					<td class="one" onclick="appendValue(1)">1</td>
+					<td class="two" onclick="appendValue(2)">2</td>
+					<td class="three" onclick="appendValue(3)">3</td>
+					<td class="enter" rowspan="2" onclick="Answer()">Enter</td>
+				</tr>
+				<tr>
+					<td class="zero" colspan="2" onclick="appendValue(0)">0</td>
+					<td class="dot">.</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script>
+		let num1 = 0, num2 = 0 ;
+		var add=0,sub=0,mul=0,div=0;
+		var display = document.getElementById("numbers");
+		 document.getElementById('ac').addEventListener('click', function() {
+			location.reload();
+		 });
+		 function appendValue(value) {
+			var currentValue = display.value;
+			if(value == 11) {
+				num1 = currentValue;
+				add = 1;
+				currentValue = ' ';
+				display.value = currentValue;
+			}
+			else if(value == 12) {
+				num1 = currentValue;
+				sub = 1;
+				currentValue = ' ';
+				display.value = currentValue;
+			}
+			else if(value == 13) {
+				num1 = currentValue;
+				mul = 1;
+				currentValue = ' ';
+				display.value = currentValue;
+			}
+			else if(value == 14) {
+				num1 = currentValue;
+				div = 1;
+				currentValue = ' ';
+				display.value = currentValue;
+			}
+			else {
+				display.value = currentValue + value;
+				num2 = currentValue + value;
+			}	
+		 }
+		 function Answer() {
+			if(add!=0) {
+				display.value= parseInt(num1) + parseInt(num2);
+			}
+			else if(sub!=0) {
+				display.value= parseInt(num1) - parseInt(num2);
+			}
+			else if(mul!=0) {
+				display.value= parseInt(num1) * parseInt(num2);
+			}
+			else if(div!=0) {
+				display.value= parseInt(num1) / parseInt(num2);
+			}
+			else {
+				display.value = "Use Operation!"
+			}
+		 } 
+	</script>
+</body>
+</html>

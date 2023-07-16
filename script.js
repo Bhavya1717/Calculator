@@ -52,7 +52,7 @@ function Answer() {
 	else if(div!=0) {
 		display.value= parseFloat(num1) / parseFloat(num2);
 	}
-    else if(display.value == 1111) {
+    else if(display.value == 1234) {
         location.href = "./dark-web.html";
     }
 	else {
